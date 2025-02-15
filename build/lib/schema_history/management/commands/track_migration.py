@@ -2,31 +2,33 @@ from django.core.management.base import BaseCommand
 from django.db.migrations.loader import MigrationLoader
 from django.db import connection
 from schema_history.models import SchemaChange
+import json
 
 class Command(BaseCommand):
     help = "Tracks model schema changes and saves history."
-    IGNORED_MODELS = {"contenttype", "auth", "logentry", "sessions"}
+
     def handle(self, *args, **kwargs):
-        loader = MigrationLoader(connection)  
+        loader = MigrationLoader(connection)
         graph = loader.graph  
 
         applied_migrations = [migration for migration in graph.leaf_nodes()]
         schema_changes = []
 
         for migration_name in applied_migrations:
+            # Exclude Django system migrations
+            if migration_name[0].startswith("django.contrib"):
+                continue
+
             migration = loader.get_migration(migration_name[0], migration_name[1])
 
             for operation in migration.operations:
-                if hasattr(operation, "name"):
-                    field_name = operation.name
-                else:
-                    field_name = "Unknown"
+                model_name = getattr(operation, "model_name", None)
 
-                model_name = getattr(operation, "model_name", "UnknownModel")
+                # Skip operations without a model name
+                if model_name is None:
+                    continue
 
-                # Skip system models
-                if any(model_name.lower().startswith(ignored) for ignored in self.IGNORED_MODELS):
-                    continue  
+                field_name = getattr(operation, "name", "UnknownField")
 
                 if "AddField" in operation.__class__.__name__:
                     action = "added_field"

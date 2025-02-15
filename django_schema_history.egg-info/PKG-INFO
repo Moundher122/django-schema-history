@@ -2,9 +2,9 @@ Metadata-Version: 2.2
 Name: django-schema-history
 Version: 0.1.0
 Summary: A Django package to track model schema changes (added/removed/modified fields).
-Home-page: https://github.com/yourusername/django-schema-history
-Author: Your Name
-Author-email: your.email@example.com
+Home-page: https://github.com/moundher122/django-schema-history
+Author: moundher bouroumana
+Author-email: bouorumanamoundher@gmail.com
 License: MIT
 Classifier: Framework :: Django
 Classifier: Programming Language :: Python

@@ -16,3 +16,5 @@ schema_history/signals.py
 schema_history/management/__init__.py
 schema_history/management/commands/__init__.py
 schema_history/management/commands/track_migration.py
+schema_history/migrations/0001_initial.py
+schema_history/migrations/__init__.py
