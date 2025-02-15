@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: django-schema-history
+Version: 0.1.0
+Summary: A Django package to track model schema changes (added/removed/modified fields).
+Home-page: https://github.com/yourusername/django-schema-history
+Author: Your Name
+Author-email: your.email@example.com
+License: MIT
+Classifier: Framework :: Django
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django>=3.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
