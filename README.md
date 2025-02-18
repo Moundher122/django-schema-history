@@ -66,9 +66,7 @@ The package stores schema changes in the `SchemaChange` model:
 class SchemaChange(models.Model):
     action_type = models.CharField(max_length=50)  # e.g., added_field, removed_field
     model_name = models.CharField(max_length=255)
-    field_name = models.CharField(max_length=255)
-    old_value = models.TextField(null=True, blank=True)
-    new_value = models.TextField(null=True, blank=True)
+    field_name = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
 ```
 
