@@ -1,3 +1,4 @@
+<a href="https://pepy.tech/projects/django-schema-history"><img src="https://static.pepy.tech/badge/django-schema-history" alt="PyPI Downloads"></a>
 # Django Schema History
 
 Django Schema History is a package that tracks schema changes in Django models and stores the history in the database. It helps developers monitor changes such as adding, modifying, or removing fields.
