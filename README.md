@@ -43,22 +43,7 @@ To track schema changes, run the following command:
 python manage.py track_schema_changes
 ```
 
-This will log and save schema changes into the `SchemaChange` model.
-
-## Admin Panel Integration
-To manage schema changes from the Django Admin panel, add the following to your `admin.py`:
-
-```python
-from django.contrib import admin
-from schema_history.models import SchemaChange
-
-@admin.register(SchemaChange)
-class SchemaChangeAdmin(admin.ModelAdmin):
-    list_display = ("action_type", "model_name", "field_name", "timestamp")
-    search_fields = ("model_name", "field_name")
-    list_filter = ("action_type", "timestamp")
-```
-
+This will log and save schema changes into the `SchemaChange` model.
 ## Model Structure
 The package stores schema changes in the `SchemaChange` model:
 
